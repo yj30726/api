@@ -1,0 +1,13 @@
+<h1>classblog_list.html</h1>
+
+<h1>CRUD</h1>
+<a href="{% url 'new' %}">새글 쓰기</a>
+
+{%for blog in object_list%} <!--object_list == 지정한 모델로 만들어진 모든 객체들의 목록 -->
+  {{blog.title}}
+  {{blog.created_at}}
+  {{blog.body}}
+  <a href="{%url 'detail' blog.id%}">상세보기</a>
+  <a href="{%url 'change' blog.id%}">수정</a>
+  <a href="{%url 'del' blog.id%}">삭제</a><br><hr>
+{%endfor%}
